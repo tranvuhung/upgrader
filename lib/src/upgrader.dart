@@ -39,13 +39,13 @@ class Upgrader {
   AppcastConfiguration appcastConfig;
 
   /// The ignore button title, which defaults to ```Ignore```
-  String buttonTitleIgnore = 'Ignore'.toUpperCase();
+  String buttonTitleIgnore = 'Bỏ qua';
 
   /// The later button title, which defaults to ```Later```
-  String buttonTitleLater = 'Later'.toUpperCase();
+  String buttonTitleLater = 'Để sau';
 
   /// The update button title, which defaults to ```Update Now```
-  String buttonTitleUpdate = 'Update Now'.toUpperCase();
+  String buttonTitleUpdate = 'Cập nhật';
 
   /// Provide an HTTP Client that can be replaced for mock testing.
   http.Client client = http.Client();
@@ -65,10 +65,10 @@ class Upgrader {
   final notInitializedExceptionMessage =
       'initialize() not called. Must be called first.';
 
-  String prompt = 'Would you like to update it now?';
+  String prompt = 'Bạn có muốn cập nhật hay không??';
 
   /// The alert dialog title
-  String title = 'Update App?';
+  String title = 'Thông báo cập nhật';
 
   /// Called when the ignore button is tapped or otherwise activated.
   /// Return false when the default behavior should not execute.
@@ -234,7 +234,7 @@ class Upgrader {
   }
 
   String message() {
-    return 'A new version of ${appName()} is available! Version ${currentAppStoreVersion()} is now available-you have ${currentInstalledVersion()}.';
+    return 'Phiên bản ${currentAppStoreVersion()} đã có mặt trên Store, bạn có muốn cập nhật hay không?';
   }
 
   void checkVersion({@required BuildContext context}) {
@@ -316,7 +316,7 @@ class Upgrader {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Text(message),
-              Padding(padding: EdgeInsets.only(top: 15.0), child: Text(prompt)),
+              //Padding(padding: EdgeInsets.only(top: 15.0), child: Text(prompt)),
             ],
           ),
           actions: <Widget>[
