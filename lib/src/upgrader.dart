@@ -4,6 +4,7 @@
 
 import 'dart:async';
 import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:package_info/package_info.dart';
@@ -310,27 +311,51 @@ class Upgrader {
       barrierDismissible: false,
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(title),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text(message),
-              //Padding(padding: EdgeInsets.only(top: 15.0), child: Text(prompt)),
+        if(Platform.isIOS){
+          return CupertinoAlertDialog(
+            title: Text(title),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text(message),
+                //Padding(padding: EdgeInsets.only(top: 15.0), child: Text(prompt)),
+              ],
+            ),
+            actions: <Widget>[
+              FlatButton(
+                  child: Text(buttonTitleIgnore),
+                  onPressed: () => onUserIgnored(context, true)),
+              FlatButton(
+                  child: Text(buttonTitleLater),
+                  onPressed: () => onUserLater(context, true)),
+              FlatButton(
+                  child: Text(buttonTitleUpdate),
+                  onPressed: () => onUserUpdated(context, true)),
             ],
-          ),
-          actions: <Widget>[
-            FlatButton(
-                child: Text(buttonTitleIgnore),
-                onPressed: () => onUserIgnored(context, true)),
-            FlatButton(
-                child: Text(buttonTitleLater),
-                onPressed: () => onUserLater(context, true)),
-            FlatButton(
-                child: Text(buttonTitleUpdate),
-                onPressed: () => onUserUpdated(context, true)),
-          ],
-        );
+          );
+        }else{
+          return AlertDialog(
+            title: Text(title),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text(message),
+                //Padding(padding: EdgeInsets.only(top: 15.0), child: Text(prompt)),
+              ],
+            ),
+            actions: <Widget>[
+              FlatButton(
+                  child: Text(buttonTitleIgnore),
+                  onPressed: () => onUserIgnored(context, true)),
+              FlatButton(
+                  child: Text(buttonTitleLater),
+                  onPressed: () => onUserLater(context, true)),
+              FlatButton(
+                  child: Text(buttonTitleUpdate),
+                  onPressed: () => onUserUpdated(context, true)),
+            ],
+          );
+        }
       },
     );
   }
