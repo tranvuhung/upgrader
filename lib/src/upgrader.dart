@@ -322,13 +322,13 @@ class Upgrader {
               ],
             ),
             actions: <Widget>[
-              FlatButton(
+              CupertinoDialogAction(
                   child: Text(buttonTitleIgnore),
                   onPressed: () => onUserIgnored(context, true)),
-              FlatButton(
+              CupertinoDialogAction(
                   child: Text(buttonTitleLater),
                   onPressed: () => onUserLater(context, true)),
-              FlatButton(
+              CupertinoDialogAction(
                   child: Text(buttonTitleUpdate),
                   onPressed: () => onUserUpdated(context, true)),
             ],
