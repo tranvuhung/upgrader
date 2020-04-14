@@ -314,13 +314,7 @@ class Upgrader {
         if(Platform.isIOS){
           return CupertinoAlertDialog(
             title: Text(title),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text(message),
-                //Padding(padding: EdgeInsets.only(top: 15.0), child: Text(prompt)),
-              ],
-            ),
+            content: Text(message),
             actions: <Widget>[
               CupertinoDialogAction(
                   child: Text(buttonTitleIgnore),
@@ -336,13 +330,7 @@ class Upgrader {
         }else{
           return AlertDialog(
             title: Text(title),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text(message),
-                //Padding(padding: EdgeInsets.only(top: 15.0), child: Text(prompt)),
-              ],
-            ),
+            content: Text(message),
             actions: <Widget>[
               FlatButton(
                   child: Text(buttonTitleIgnore),
