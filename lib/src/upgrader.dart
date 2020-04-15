@@ -316,9 +316,9 @@ class Upgrader {
             title: Text(title),
             content: Text(message),
             actions: <Widget>[
-              CupertinoDialogAction(
-                  child: Text(buttonTitleIgnore),
-                  onPressed: () => onUserIgnored(context, true)),
+              // CupertinoDialogAction(
+              //     child: Text(buttonTitleIgnore),
+              //     onPressed: () => onUserIgnored(context, true)),
               CupertinoDialogAction(
                   child: Text(buttonTitleLater),
                   onPressed: () => onUserLater(context, true)),
@@ -332,9 +332,9 @@ class Upgrader {
             title: Text(title),
             content: Text(message),
             actions: <Widget>[
-              FlatButton(
-                  child: Text(buttonTitleIgnore),
-                  onPressed: () => onUserIgnored(context, true)),
+              // FlatButton(
+              //     child: Text(buttonTitleIgnore),
+              //     onPressed: () => onUserIgnored(context, true)),
               FlatButton(
                   child: Text(buttonTitleLater),
                   onPressed: () => onUserLater(context, true)),
